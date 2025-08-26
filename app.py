@@ -9,8 +9,8 @@ import os
 # =========================
 # 🔧 EDIT THESE PATHS
 # =========================
-PATH_URL_CSV   = "data\Gerzeny_store.csv"  # URL Data (Green)
-PATH_STORE_CSV = "data\Spoutro August 2025 1(in).csv"              # Store Data (Blue)
+PATH_STORE_CSV   = "data\Gerzeny_store.csv"  # URL Data (Green)
+PATH_URL_CSV = "data\Spoutro August 2025 1(in).csv"              # Store Data (Blue)
 
 # ---------------- Page config & style ----------------
 st.set_page_config(page_title="Gerzeny's Data — URL (Green) & Store (Blue)", page_icon="🌍", layout="wide")
@@ -74,8 +74,8 @@ def popup_html(row, postal_col=None, name_col=None):
     parts = ["<div class='cluster-popup'>", "<b>📍 Location Details</b><br>"]
     if name_col and name_col in row and pd.notna(row[name_col]):
         parts.append(f"<b>Name:</b> {row[name_col]}<br>")
-    parts.append(f"<b>Latitude:</b> {row['latitude']:.6f}<br>")
-    parts.append(f"<b>Longitude:</b> {row['longitude']:.6f}<br>")
+    parts.append(f"<b>Latitude:</b> {row['Latitude']:.6f}<br>")
+    parts.append(f"<b>Longitude:</b> {row['Longitude']:.6f}<br>")
     if postal_col and postal_col in row and pd.notna(row[postal_col]):
         parts.append(f"<b>Postal Code:</b> {row[postal_col]}<br>")
     if "state" in row and pd.notna(row["state"]):   parts.append(f"<b>State:</b> {row['state']}<br>")
@@ -150,12 +150,12 @@ def build_map(url_df, store_df, cluster=True, fast_csv=False,
 def main():
     st.markdown('<h1 class="main-header">🌍 Gerzeny\'s Data — URL (Green) & Store (Blue)</h1>', unsafe_allow_html=True)
 
-    st.markdown(
-        f"<div class='path-note'>"
-        f"<b>URL Data path:</b> {PATH_URL_CSV}<br>"
-        f"<b>Store Data path:</b> {PATH_STORE_CSV}"
-        f"</div>", unsafe_allow_html=True
-    )
+    # st.markdown(
+    #     f"<div class='path-note'>"
+    #     f"<b>URL Data path:</b> {PATH_URL_CSV}<br>"
+    #     f"<b>Store Data path:</b> {PATH_STORE_CSV}"
+    #     f"</div>", unsafe_allow_html=True
+    # )
 
     with st.sidebar:
         st.header("⚙️ Map Settings")
@@ -210,7 +210,7 @@ def main():
             st.metric("Unique Postal Codes", "Not found")
 
     # Map (full width)
-    st.markdown("### 📍 Map (Green = URL Data, Blue = Store Data)")
+    st.markdown("### 📍 Locations")
     with st.spinner("Rendering map..."):
         fmap = build_map(
             url_df, store_df, cluster=cluster, fast_csv=fast_csv,
