@@ -9,8 +9,8 @@ import os
 # =========================
 # 🔧 EDIT THESE PATHS
 # =========================
-PATH_STORE_CSV   = "data\Gerzeny_store.csv"  # URL Data (Green)
-PATH_URL_CSV = "data\Spoutro August 2025 1(in).csv"              # Store Data (Blue)
+PATH_STORE_CSV   = "Gerzeny_store.csv"  # URL Data (Green)
+PATH_URL_CSV = "Spoutro August 2025 1(in).csv"              # Store Data (Blue)
 
 # ---------------- Page config & style ----------------
 st.set_page_config(page_title="Gerzeny's Data — URL (Green) & Store (Blue)", page_icon="🌍", layout="wide")
